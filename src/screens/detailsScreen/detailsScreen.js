@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
-import { connect } from 'react-redux';
-import { setUser } from '../../redux/actions';
+import userDecorator from '../../decorators/userDecorator';
 
-class DetailsScreen extends React.Component {
+@userDecorator
+export default class DetailsScreen extends React.Component {
   static navigationOptions = {
     tabBarLabel: 'DETAILS',
   };
@@ -37,14 +37,3 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
-
-const mapDispatchToProps = dispatch => ({
-  setUser: (userName) => { dispatch(setUser(userName)); },
-});
-
-const mapStateToProps = state => ({
-  user: state.user,
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(DetailsScreen);
-

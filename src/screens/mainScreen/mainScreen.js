@@ -1,9 +1,10 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { StyleSheet, Text, View } from 'react-native';
 import { SunShine } from '../../components';
+import  userDecorator  from '../../decorators/userDecorator';
 
-class MainScreen extends React.Component {
+@userDecorator
+export default class MainScreen extends React.Component {
   static navigationOptions = {
     tabBarLabel: 'MAIN',
   };
@@ -11,6 +12,7 @@ class MainScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <Text>{this.props.user.userName}</Text>
         <SunShine/>
       </View>
     );
@@ -26,13 +28,4 @@ const styles = StyleSheet.create({
   },
 });
 
-const mapStateToProps = state => ({
-  state,
-});
-
-const mapDispatchToProps = dispatch => ({
-
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(MainScreen);
 

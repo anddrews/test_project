@@ -4,7 +4,7 @@ import { MainScreen } from '../../screens/mainScreen';
 import { DetailsScreen } from '../../screens/detailsScreen';
 
 
-const DrawerStack = TabNavigator({
+const DrawerStack = StackNavigator({
   Main: { screen: MainScreen },
   Details: { screen: DetailsScreen },
 }, {
